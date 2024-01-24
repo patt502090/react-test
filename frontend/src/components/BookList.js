@@ -11,17 +11,17 @@ const BookList = ({ onSelectBook }) => {
     axios.get('http://localhost:1337/api/books')
       .then(response => {
         console.log('Data from API:', response.data);
-        setBooks(response.data.data)
+        setBooks(response.data.data);
       })
       .catch(error => console.error('Error fetching books:', error));
   }, []);
 
   return (
-    <div>
+    <div className="text-center"> 
       <h1>Book List</h1>
-      
+
       {books.map(book => (
-        <Card key={book.id} style={{ width: '18rem', marginBottom: '20px' }}>
+        <Card key={book.id} style={{ width: '18rem', marginBottom: '20px' }} className="mx-auto">
           <Card.Body onClick={() => onSelectBook(book)}>
             {console.log(book)}
             <Card.Title>{book.attributes.title}</Card.Title>
@@ -29,10 +29,8 @@ const BookList = ({ onSelectBook }) => {
             <Button variant="primary">View Details</Button>
           </Card.Body>
         </Card>
-        
       ))}
     </div>
-    
   );
 };
 
