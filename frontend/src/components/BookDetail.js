@@ -17,14 +17,14 @@ const BookDetail = ({ book, onBack }) => {
   }, [book]);
 
   return (
-    <div>
+    <div className="text-center"> 
       <Button onClick={onBack} variant="secondary">Back</Button>
-      {bookDetail && bookDetail.attributes && (
-        <Card style={{ width: '18rem', marginTop: '20px' }}>
+      {bookDetail?.attributes && (
+        <Card style={{ width: '40rem', marginTop: '20px' }} className="mx-auto"> 
           <Card.Body>
-            <Card.Title>{bookDetail.attributes.title}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">{bookDetail.attributes.author}</Card.Subtitle>
-            <Card.Text>{bookDetail.attributes.description}</Card.Text>
+            <Card.Title>Title : {bookDetail.attributes.title}</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">Author : {bookDetail.attributes.author}</Card.Subtitle>
+            <Card.Text>Description : {bookDetail.attributes.description}</Card.Text>
           </Card.Body>
         </Card>
       )}
